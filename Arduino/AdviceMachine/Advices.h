@@ -3,7 +3,7 @@
 const char s1[] PROGMEM = "Aluminiumfolie reißt nicht so leicht, wenn man sie vor Gebrauch vollflächig auf Rigipsplatten klebt.";
 const char s2[] PROGMEM = "Bier hinterlässt keine Rotweinflecken.";
 const char s3[] PROGMEM = "Die Wohnung bleibt beim Bohren von Dübellöchern staubfrei, wenn Sie die Wand vorher in den Garten tragen.";
-const char s4[] PROGMEM = "Kleine Brandlöcher vom Lagerfeuer entfernt man am besten mit einer Nagelschere.";
+const char s4[] PROGMEM = "Kleine Brandlöcher entfernt man am besten mit einer Nagelschere.";
 const char s5[] PROGMEM = "Brot trocknet nicht aus, wenn man es in einem Eimer mit Wasser lagert.";
 const char s6[] PROGMEM = "Fettflecken halten länger, wenn man sie ab und zu mit Butter einreibt.";
 const char s7[] PROGMEM = "Salzflecken auf einer Tischdecke bekommt man mit etwas Rotwein wieder heraus.";
@@ -48,12 +48,12 @@ const char s45[] PROGMEM = "Nem geschenkten Barsch guckt man nicht hinter die Ki
 const char s46[] PROGMEM = "Atmen durch den Hintermund, hält Leib und Seele gesund.";
 const char s47[] PROGMEM = "Bohnen, Erbsen und auch Linsen bringens Ärschle schnell zum Grinsen!";
 const char s48[] PROGMEM = "Aftershave ist nicht das Gegenteil von Mundwasser!";
-const char* const sprueche[] PROGMEM = {s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14,s15,s16,s17,s18,s19,s20,s21,s22,s23,s24,s25,s26,s27,s28,s29,s30,s31,s32,s33,s34,s35,s36,s37,s38,s39,s40,s41,s42,s43,s44,s45,s46,s47,s48};
-String getSpruch(){
+const char* const advices[] PROGMEM = {s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14,s15,s16,s17,s18,s19,s20,s21,s22,s23,s24,s25,s26,s27,s28,s29};
+String getAdvice(){
     char stringBuffer[275];
     randomSeed(millis());
     int randomNum = random(0,47);
     Serial.println("Random: " + String(randomNum));
- strcpy_P(stringBuffer, (char*)pgm_read_word(&(sprueche[randomNum])));
+ strcpy_P(stringBuffer, (char*)pgm_read_word(&(advices[randomNum])));
   return String(stringBuffer);
 }
